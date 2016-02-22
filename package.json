@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "i2c-bus": "^1.0.2"
+    "serialport": "^2.0.6"
   }
 }
