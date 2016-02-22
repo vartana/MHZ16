@@ -1,7 +1,9 @@
-var i2c = require('i2c-bus'),
-  bus = i2c.openSync(1);
+var i2c = require('i2c-bus');
 
 var add = 0x4d;
-var cmd = new Buffer([0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]);
+var cmd = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79];
 
-bus.i2cWrite(add, cmd.length, cmd, console.log);
+i2c.open(1, function(bus){
+  
+  bus.i2cWrite(add, cmd.length, cmd, console.log);
+})
