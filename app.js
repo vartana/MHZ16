@@ -16,13 +16,17 @@ serialPort.on("open", function () {
     .word8('x')
     .tap(function (vars) {
         console.dir(vars);
+        setTimeout(function() {
+          getPPM();
+        }, 3000);
     });
   });
   
-  serialPort.on('error', function(data) {
-    console.log('Error: ' + data);
-  });
   
+  getPPM();
+});
+
+function getPPM(){
   serialPort.write(cmdReq, function(err, results) {
     if(err){
       console.log('err ' + err);
@@ -30,4 +34,4 @@ serialPort.on("open", function () {
     
     console.log('results ' + results);
   });
-});
+}
