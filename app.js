@@ -8,7 +8,7 @@ var cmd_get_sensor = "\xff\x01\x86\x00\x00\x00\x00\x00\x79";
 
 
   console.log("Send");
-  var x = bus.readWordSync(addr, cmd_get_sensor);
+  var x = bus.writeByteSync(addr, cmd_get_sensor, null);
   console.log(x);
 
 console.log("Receive");
