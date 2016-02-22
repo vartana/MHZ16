@@ -33,6 +33,6 @@ function getPPM(){
       console.log('err ' + err);
     }
     
-    console.log('results ' + results);
+    setTimeout(getPPM, 3000);
   });
 }
