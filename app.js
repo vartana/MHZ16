@@ -1,14 +1,20 @@
-var i2c = require('i2c-bus'),
-  bus = i2c.openSync(1);
+var SerialPort = require("serialport").SerialPort
+var serialPort = new SerialPort("/dev/ttyAMA0", {
+  baudrate: 9600,
+  timeout: 1
+});
 
-var addr = 0x4d;
 var cmd_zero_sensor = "\xff\x87\x87\x00\x00\x00\x00\x00\xf2";
 var cmd_span_sensor = "\xff\x87\x87\x00\x00\x00\x00\x00\xf2";
 var cmd_get_sensor = "\xff\x01\x86\x00\x00\x00\x00\x00\x79";
 
-
-  console.log("Send");
-  var x = bus.writeByteSync(addr, cmd_get_sensor, null);
-  console.log(x);
-
-console.log("Receive");
+serialPort.on("open", function () {
+  console.log('open');
+  serialPort.on('data', function(data) {
+    console.log('data received: ' + data);
+  });
+  serialPort.write(cmd_get_sensor, function(err, results) {
+    console.log('err ' + err);
+    console.log('results ' + results);
+  });
+});
