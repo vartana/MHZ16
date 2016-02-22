@@ -1,6 +1,7 @@
 var SerialPort = require("serialport").SerialPort
 var serialPort = new SerialPort("/dev/ttyAMA0", {
-  baudrate: 9600
+  baudrate: 9600,
+  parser: serialport.parsers.readline('\r')
 });
 
 var cmdReq = new Buffer([0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]);
