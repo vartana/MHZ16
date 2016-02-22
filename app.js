@@ -11,9 +11,6 @@ serialPort.on("open", function () {
   serialPort.on('data', function(data) {
     console.log('Data: ' + data, 'typeof '+ typeof data);
     binary(data)
-    .word16ls('ab')
-    .word32bu('cf')
-    .word8('x')
     .tap(function (vars) {
         console.dir(vars);
     });
