@@ -8,7 +8,7 @@ var cmdRes = new Buffer([0xff, 0x86, 0x02, 0x60, 0x47, 0x00, 0x00, 0x00, 0xd1]);
 
 serialPort.on("open", function () {
   serialPort.on('data', function(data) {
-    console.log('Data: ' + data);
+    console.log('Data: ' + data, 'typeof '+ typeof data);
   });
   
   serialPort.on('error', function(data) {
