@@ -13,7 +13,7 @@ cmdReq.forEach(function(entry) {
 
 console.log("Receive");
 cmdReq.forEach(function(entry) {
-    bus.receiveByteSync(addr)
+    bus.sendByteSync(addr, entry)
     console.log(entry);
 });
 
