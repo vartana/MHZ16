@@ -11,14 +11,14 @@ serialPort.on("open", function () {
   serialPort.on('data', function(data) {
     console.log('Data: ' + data, 'typeof '+ typeof data);
     binary(data)
-    .word8(1)
-    .word8(2)
-    .word8(3)
-    .word8(4)
-    .word8(5)
-    .word8(6)
-    .word8(7)
-    .word8(8)
+    .word8('a')
+    .word8('b')
+    .word8('c')
+    .word8('d')
+    .word8('e')
+    .word8('f')
+    .word8('g')
+    .word8('h')
     .tap(function (vars) {
         console.dir(vars);
     });
