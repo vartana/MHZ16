@@ -16,12 +16,8 @@ serialPort.on("open", function () {
     .word8('x')
     .tap(function (vars) {
         console.dir(vars);
-        setTimeout(function() {
-          getPPM();
-        }, 3000);
     });
   });
-  
   
   getPPM();
 });
