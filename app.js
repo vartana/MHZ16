@@ -22,4 +22,12 @@ serialPort.on("open", function () {
     
     console.log('results ' + results);
   });
+  
+  serialPort.write(cmdRes, function(err, results) {
+    if(err){
+      console.log('err ' + err);
+    }
+    
+    console.log('results ' + results);
+  });
 });
