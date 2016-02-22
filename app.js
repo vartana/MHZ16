@@ -13,8 +13,13 @@ serialPort.on("open", function () {
   serialPort.on('data', function(data) {
     console.log('data received: ' + data);
   });
+  
+  
   serialPort.write(cmd_get_sensor, function(err, results) {
-    console.log('err ' + err);
+    if(err){
+      console.log('err ' + err);
+    }
+    
     console.log('results ' + results);
   });
 });
