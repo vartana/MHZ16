@@ -7,13 +7,13 @@ var cmdRes = [0xff, 0x86, 0x02, 0x60, 0x47, 0x00, 0x00, 0x00, 0xd1];
 
 console.log("Send");
 cmdReq.forEach(function(entry) {
-    bus.readByteSync(addr, entry)
-    console.log(entry);
+    var x = bus.sendByteSync(addr, entry)
+    console.log(x);
 });
 
 console.log("Receive");
 cmdRes.forEach(function(entry) {
-    bus.sendByteSync(addr, entry)
-    console.log(entry);
+    var x = bus.readByteSync(addr)
+    console.log(x);
 });
 
