@@ -7,6 +7,6 @@ var cmd = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79];
 //bus.sendByteSync(addr, byte)
 
 cmd.forEach(function(entry) {
-    bus.sendByteSync(addr, entry, cb)
+    bus.sendByteSync(addr, entry)
     console.log(entry);
 });
