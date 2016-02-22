@@ -7,7 +7,7 @@ var cmdRes = [0xff, 0x86, 0x02, 0x60, 0x47, 0x00, 0x00, 0x00, 0xd1];
 
 console.log("Send");
 cmdReq.forEach(function(entry) {
-    bus.sendByteSync(addr, entry)
+    bus.readByteSync(addr, entry)
     console.log(entry);
 });
 
