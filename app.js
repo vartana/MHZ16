@@ -2,23 +2,15 @@ var i2c = require('i2c-bus'),
   bus = i2c.openSync(1);
 
 var addr = 0x4d;
-var cmdReq = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79];
-var cmdRes = [0xff, 0x86, 0x02, 0x60, 0x47, 0x00, 0x00, 0x00, 0xd1];
+var cmd_zero_sensor = "\xff\x87\x87\x00\x00\x00\x00\x00\xf2";
+var cmd_span_sensor = "\xff\x87\x87\x00\x00\x00\x00\x00\xf2";
+var cmd_get_sensor = "\xff\x01\x86\x00\x00\x00\x00\x00\x79";
 
 
 cmdReq.forEach(function(entry) {
     console.log("Send");
-    var x = bus.sendByte(addr, entry, function(err){
-       console.log(err);
-    })
+    var x = bus.readWordSync(addr, cmd_get_sensor);
+    cosnole.log(x);
 });
 
 console.log("Receive");
-cmdRes.forEach(function(entry) {
-    var x = bus.readByte(addr, 0x86, function(err, byte){
-      
-      console.log(err, byte);
-    })
-    
-});
-
