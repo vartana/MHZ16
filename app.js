@@ -12,7 +12,7 @@ cmdReq.forEach(function(entry) {
 });
 
 console.log("Receive");
-cmdReq.forEach(function(entry) {
+cmdRes.forEach(function(entry) {
     bus.sendByteSync(addr, entry)
     console.log(entry);
 });
