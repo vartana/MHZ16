@@ -36,5 +36,7 @@ function getPPM(){
     if(err){
       console.log('err ' + err);
     }
+    
+    setTimeout(getPPM, 1000);
   });
 }
