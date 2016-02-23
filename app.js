@@ -12,14 +12,17 @@ serialPort.on("open", function () {
     binary(data)
     .word8('a')
     .word8('b')
-    .word8('c')
-    .word8('d')
-    .word8('e')
+    .word8('high_level')
+    .word8('low_level')
+    .word8('temp_co2')
     .word8('f')
     .word8('g')
     .word8('h')
     .tap(function (vars) {
-        console.log(vars);
+      
+        var conc = vars.high_level*256+vars.low_level;
+        var temp_co2 = vars.temp_co2 - 40;
+        console.log("CO2 Conc: ", conc, " Temp: ", temp_co2);
     });
   });
   
@@ -31,7 +34,5 @@ function getPPM(){
     if(err){
       console.log('err ' + err);
     }
-    
-    setTimeout(getPPM, 5000);
   });
 }
