@@ -25,7 +25,7 @@ serialPort.on("open", function () {
     .word8('h')
     .tap(function (vars) {
       
-        var conc = vars.high_level*256+vars.low_level;
+        var conc = (vars.high_level*256) +vars.low_level;
         var temp_co2 = vars.temp_co2 - 40;
         if(!conc == 0){
           console.log("CO2 Conc: ", conc, " Temp: ", temp_co2);
