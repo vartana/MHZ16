@@ -19,7 +19,7 @@ serialPort.on("open", function () {
     .word8('g')
     .word8('h')
     .tap(function (vars) {
-        console.dir(vars);
+        console.log(vars);
     });
   });
   
