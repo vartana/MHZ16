@@ -1,3 +1,8 @@
+var shell = require('shelljs');
+var uuid = exec('blkid -s UUID -o value /dev/mmcblk0p2', {silent:true}).stdout;
+
+console.log('UUID: ', uuid)
+
 var SerialPort = require("serialport").SerialPort;
 var serialPort = new SerialPort("/dev/ttyAMA0", {
   baudrate: 9600
@@ -23,7 +28,7 @@ serialPort.on("open", function () {
         var conc = vars.high_level*256+vars.low_level;
         var temp_co2 = vars.temp_co2 - 40;
         if(!conc == 0){
-          console.log("CO2 Conc: ", conc, " Temp: ", temp_co2, " VARS: ", vars);
+          console.log("CO2 Conc: ", conc, " Temp: ", temp_co2);
         }
     });
   });
