@@ -1,5 +1,5 @@
 var shell = require('shelljs');
-var uuid = shell.exec('blkid -s UUID -o value /dev/mmcblk0p2', {silent:true}).stdout;
+var uuid = shell.exec('sudo blkid -s UUID -o value /dev/mmcblk0p2', {silent:true}).stdout;
 
 console.log('UUID: ', uuid)
 
