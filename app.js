@@ -18,11 +18,12 @@ serialPort.on("open", function () {
     .word8('f')
     .word8('g')
     .word8('h')
+    .word8('i')
     .tap(function (vars) {
       
         var conc = vars.high_level*256+vars.low_level;
         var temp_co2 = vars.temp_co2 - 40;
-        console.log("CO2 Conc: ", conc, " Temp: ", temp_co2);
+        console.log("CO2 Conc: ", conc, " Temp: ", temp_co2, " VARS: ", vars);
     });
   });
   
