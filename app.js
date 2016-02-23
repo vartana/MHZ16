@@ -30,7 +30,7 @@ serialPort.on("open", function () {
         if(!conc == 0){
           console.log("CO2 Conc: ", conc, " Temp: ", temp_co2);
         }else{
-          console.log(vars);
+          //console.log(vars);
         }
     });
   });
